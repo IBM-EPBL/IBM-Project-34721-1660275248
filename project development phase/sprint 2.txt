@@ -1,0 +1,20 @@
+
+sprint 2
+Data pre-processing
+
+# import statements
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+#importing data set
+train_datagen = ImageDataGenerator(
+    rescale=1/255, shear_range=0.2, zoom_range=0.2, horizontal_flip=True)
+test_datagen = ImageDataGenerator(rescale=1/255)
+training_set = train_datagen.flow_from_directory(
+    "../../dataset\\preprocessed dataset\\preprocessed dataset\\training", target_size=(299, 299), batch_size=32, class_mode='categorical')
+
+test_set = train_datagen.flow_from_directory(
+    "../../dataset\\preprocessed dataset\\preprocessed dataset\\testing", target_size=(299, 299), batch_size=32, class_mode='categorical')
+Found 3662 images belonging to 5 classes.
+Found 734 images belonging to 5 classes.
+training_set, test_set
+(,
+ )
